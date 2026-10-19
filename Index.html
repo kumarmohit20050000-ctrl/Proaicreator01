@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro AI Creator - Video Recorded</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+            padding: 30px 25px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .brand {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a29bfe;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+        .qr-box {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 18px;
+            display: inline-block;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .slice-title {
+            color: #6c5ce7;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .qr-box img {
+            width: 210px;
+            height: 210px;
+            display: block;
+            margin: 0 auto;
+        }
+        .details {
+            background: rgba(0, 0, 0, 0.35);
+            padding: 15px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .details strong {
+            color: #feca57;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        .btn-pay {
+            background: #00d2d3;
+            color: #111;
+        }
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .footer-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="brand">Pro AI Creator</div>
+        <h1>🎥 Video Recorded</h1>
+        <div class="badge">Only ₹99</div>
+
+        <div class="qr-box">
+            <div class="slice-title">slice</div>
+            <!-- यह लिंक आपकी UPI ID और ₹99 के हिसाब से अपने-आप असली QR कोड बनाता है -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=love1433@slc%26pn=Mohit%20Kumar%26am=99%26cu=INR" alt="UPI QR Code">
+        </div>
+
+        <div class="details">
+            <div>Account Holder: <strong>Mohit Kumar</strong></div>
+            <div>UPI ID: <strong id="upiId">love1433@slc</strong></div>
+        </div>
+
+        <div class="btn-group">
+            <a href="upi://pay?pa=love1433@slc&pn=Mohit%20Kumar&am=99&cu=INR" class="btn btn-pay">
+                ⚡ Pay ₹99 via UPI App
+            </a>
+            <button onclick="copyUPI()" class="btn btn-copy" id="copyBtn">
+                📋 Copy UPI ID
+            </button>
+        </div>
+
+        <p class="footer-note">स्कैन करें या बटन दबाकर ₹99 का पेमेंट पूरा करें।</p>
+    </div>
+
+    <script>
+        function copyUPI() {
+            const upiText = document.getElementById("upiId").innerText;
+            navigator.clipboard.writeText(upiText).then(() => {
+                const btn = document.getElementById("copyBtn");
+                btn.innerText = "✅ Copied: " + upiText;
+                setTimeout(() => {
+                    btn.innerText = "📋 Copy UPI ID";
+                }, 2500);
+            });
+        }
+    </script>
+
+</body>
+</html>
